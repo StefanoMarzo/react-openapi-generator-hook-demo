@@ -1,18 +1,12 @@
 import './App.css'
-import { OpenApiProvider } from 'react-openapi-generator-hook'
-import axios from "axios";
-import {MyComponent} from "./components/MyComponent.tsx";
+import { PetComponent } from './components/PetComponent'
+import { OpenApiConfigProvider } from './providers/OpenApiConfigProvider'
 
-function App() {
-
-    const axiosInstance = axios.create();
-
+const App = () => {
   return (
-    <>
-        <OpenApiProvider axiosInstance={axiosInstance} baseUrl={'https://petstore3.swagger.io/api/v3'}>
-            <MyComponent />
-        </OpenApiProvider>
-    </>
+    <OpenApiConfigProvider>
+      <PetComponent />
+    </OpenApiConfigProvider>
   )
 }
 
